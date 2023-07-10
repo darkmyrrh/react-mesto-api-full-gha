@@ -78,10 +78,10 @@ class Api {
 }
 
 const api = new Api({
-  url: "https://mesto.nomoreparties.co/v1/cohort-63",
+  url: "api.mesto.myrrh.ru",
   headers: {
     "content-type": "application/json; charset=UTF-8",
-    authorization: "b94fdff7-1397-48ac-8fa6-b1bcc959d2d6",
+    credentials: 'include',
   },
 });
 

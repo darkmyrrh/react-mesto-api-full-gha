@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "http://api.mesto.myrrh.ru";
 
 function getResponse(res) {
   if (res.ok) {
@@ -37,6 +37,7 @@ export const checkToken = (token) => {
       Accept: "application/json",
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
+      credentials: 'include',
     },
   }).then(getResponse);
 };
