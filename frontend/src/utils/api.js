@@ -81,7 +81,6 @@ const api = new Api({
   url: "api.mesto.myrrh.ru",
   headers: {
     "content-type": "application/json; charset=UTF-8",
-    credentials: 'include',
   },
 });
 
