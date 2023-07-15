@@ -5,10 +5,11 @@ const { SUCCESS, CREATED } = require('../utils/responceCodes');
 const BadRequestError = require('../errors/BadRequestError');
 const NotFoundError = require('../errors/NotFoundError');
 const ForbiddenError = require('../errors/ForbiddenError');
+const { populate } = require('../models/user');
 
 module.exports.getCards = (req, res, next) => Card.find({})
   .populate(['owner', 'likes'])
-  .then((cards) => res.status(SUCCESS).send({ cards }))
+  .then((cards) => res.status(SUCCESS).send(cards.reverse()))
   .catch(next);
 
 module.exports.deleteCard = (req, res, next) => {
@@ -17,7 +18,7 @@ module.exports.deleteCard = (req, res, next) => {
     .then((card) => {
       if (card) {
         if (card.owner.equals(req.user._id)) {
-          return card.deleteOne().then(() => res.status(SUCCESS).send({ card }));
+          return card.deleteOne().then(() => res.status(SUCCESS).send(card));
         }
         throw new ForbiddenError('Нельзя удалять чужие карточки.');
       }
@@ -41,7 +42,7 @@ module.exports.createCard = (req, res, next) => {
     likes,
     owner,
   })
-    .then((newCard) => res.status(CREATED).send({ data: newCard }))
+    .then((newCard) => res.status(CREATED).send(newCard))
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
         next(new BadRequestError('Переданы некорректные данные при создании карточки.'));
@@ -55,7 +56,7 @@ const updateCardData = (req, res, next, action) => Card.findByIdAndUpdate(
   req.params.cardId,
   action,
   { new: true },
-)
+).populate(['owner', 'likes'])
   .then((card) => {
     if (!card) {
       throw new NotFoundError('Передан несуществующий _id карточки.');

@@ -39,24 +39,23 @@ function App() {
   const navigate = useNavigate();
 
   const handleTokenCheck = () => {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
-      auth
-        .checkToken(jwt)
-        .then((res) => {
-          if (res) {
-            setUserEmail(res.data.email);
-            setLoggedIn(true);
-            navigate("/", { replace: true });
-          }
+    auth
+      .checkToken()
+      .then((res) => {
+        if (res) {
+          setUserEmail(res.email);
+          setLoggedIn(true);
+          navigate("/", { replace: true });
+        }
         })
         .catch((err) => {
           alert(err);
         });
-    }
+   
   };
   useEffect(() => {
     handleTokenCheck();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleRegister = (email, password) => {
@@ -79,20 +78,16 @@ function App() {
     }
     auth
       .authorize(email, password)
-      .then((data) => {
-        if (data.token) {
-          localStorage.setItem("jwt", data.token);
-          setUserEmail(email);
-          setLoggedIn(true);
-          navigate("/", { replace: true });
-        }
+      .then(() => {
+        setUserEmail(email);
+        setLoggedIn(true);
+        navigate("/", { replace: true });      
       })
       .catch((err) => alert(err));
   };
 
   const handleSignOut = () => {
     setLoggedIn(false);
-    localStorage.removeItem("jwt");
     navigate("/signin", { replace: true });
   };
 

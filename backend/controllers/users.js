@@ -11,7 +11,7 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 const User = require('../models/user');
 
 module.exports.getUsers = (req, res, next) => User.find({})
-  .then((users) => res.status(SUCCESS).send({ users }))
+  .then((users) => res.status(SUCCESS).send(users))
   .catch(next);
 
 const findUserById = (req, res, next, userId) => User.findById(userId)
@@ -19,7 +19,7 @@ const findUserById = (req, res, next, userId) => User.findById(userId)
     if (!user) {
       throw new NotFoundError('Пользователь с указанным _id не найден.');
     }
-    return res.status(SUCCESS).send({ user });
+    return res.status(SUCCESS).send(user);
   })
   .catch((err) => {
     if (err instanceof mongoose.Error.CastError) {
@@ -102,7 +102,7 @@ const updateUserById = (req, res, next, userData) => User.findByIdAndUpdate(
     if (!user) {
       throw new NotFoundError('Пользователь с указанным _id не найден.');
     }
-    return res.status(SUCCESS).send({ user });
+    return res.status(SUCCESS).send(user);
   })
   .catch((err) => {
     if (err instanceof mongoose.Error.ValidationError) {

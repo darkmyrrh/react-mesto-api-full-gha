@@ -16,18 +16,21 @@ class Api {
   getInitialCards() {
     return this._request(`${this._url}/cards`, {
       method: "GET",
+      credentials: 'include',
       headers: this._headers,
     });
   }
   getUserDetails() {
     return this._request(`${this._url}/users/me`, {
       method: "GET",
+      credentials: 'include',
       headers: this._headers,
     });
   }
   changeUserDetails(data) {
     return this._request(`${this._url}/users/me`, {
       method: "PATCH",
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
@@ -39,6 +42,7 @@ class Api {
   changeUserAvatar(data) {
     return this._request(`${this._url}/users/me/avatar`, {
       method: "PATCH",
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         avatar: data.avatar,
@@ -48,6 +52,7 @@ class Api {
   addNewCard(data) {
     return this._request(`${this._url}/cards`, {
       method: "POST",
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
@@ -58,6 +63,7 @@ class Api {
   deleteCard(id) {
     return this._request(`${this._url}/cards/${id}`, {
       method: "DELETE",
+      credentials: 'include',
       headers: this._headers,
     });
   }
@@ -65,6 +71,7 @@ class Api {
   addLike(id) {
     return this._request(`${this._url}/cards/${id}/likes`, {
       method: "PUT",
+      credentials: 'include',
       headers: this._headers,
     });
   }
@@ -72,13 +79,14 @@ class Api {
   deleteLike(id) {
     return this._request(`${this._url}/cards/${id}/likes`, {
       method: "DELETE",
+      credentials: 'include',
       headers: this._headers,
     });
   }
 }
 
 const api = new Api({
-  url: "api.mesto.myrrh.ru",
+  url: "http://localhost:3000",
   headers: {
     "content-type": "application/json; charset=UTF-8",
   },
