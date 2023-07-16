@@ -1,7 +1,7 @@
 const allowedCors = [
-  'http://localhost:3001',
   'http://localhost:3000',
   'https://mesto.myrrh.ru',
+  'http://mesto.myrrh.ru',
 ];
 
 module.exports = (req, res, next) => {
