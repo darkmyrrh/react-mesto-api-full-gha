@@ -83,7 +83,10 @@ function App() {
         setLoggedIn(true);
         navigate("/", { replace: true });      
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setInfoToolTipOpen(true);
+        console.log(err)
+      });
   };
 
   const handleSignOut = () => {
