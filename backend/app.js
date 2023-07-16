@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require('express');
-const path = require('path');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 
@@ -14,8 +13,6 @@ const errorHandler = require('./middlewares/errorHandler');
 const corsHangler = require('./middlewares/corsHandler');
 
 const app = express();
-
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(helmet());
 

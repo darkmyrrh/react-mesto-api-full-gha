@@ -5,7 +5,6 @@ const { SUCCESS, CREATED } = require('../utils/responceCodes');
 const BadRequestError = require('../errors/BadRequestError');
 const NotFoundError = require('../errors/NotFoundError');
 const ForbiddenError = require('../errors/ForbiddenError');
-const { populate } = require('../models/user');
 
 module.exports.getCards = (req, res, next) => Card.find({})
   .populate(['owner', 'likes'])
