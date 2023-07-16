@@ -12,6 +12,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isLoading }) {
 
   useEffect(() => {
     setValues({ name: currentUser.name, about: currentUser.about });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser, isOpen]);
 
   function handleSubmit(e) {

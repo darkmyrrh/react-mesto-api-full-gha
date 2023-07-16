@@ -49,7 +49,7 @@ function App() {
         }
         })
         .catch((err) => {
-          alert(err);
+          console.log(err);
         });
    
   };
@@ -83,12 +83,16 @@ function App() {
         setLoggedIn(true);
         navigate("/", { replace: true });      
       })
-      .catch((err) => alert(err));
+      .catch((err) => console.log(err));
   };
 
   const handleSignOut = () => {
-    setLoggedIn(false);
-    navigate("/signin", { replace: true });
+    auth
+      .signout()
+      .then(() => {
+        setLoggedIn(false);
+        navigate("/signin", { replace: true });
+      })
   };
 
   useEffect(() => {
@@ -99,7 +103,7 @@ function App() {
           setCards(cards);
         })
         .catch((err) => {
-          alert(err);
+          console.log(err);
         });
     }
   }, [loggedIn]);
@@ -135,7 +139,7 @@ function App() {
           );
         })
         .catch((err) => {
-          alert(err);
+          console.log(err);
         });
     } else {
       api
@@ -146,7 +150,7 @@ function App() {
           );
         })
         .catch((err) => {
-          alert(err);
+          console.log(err);
         });
     }
   }

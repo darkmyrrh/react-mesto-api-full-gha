@@ -90,6 +90,8 @@ module.exports.login = (req, res, next) => {
     .catch(next);
 };
 
+module.exports.logout = (req, res) => res.status(SUCCESS).clearCookie('jwt').send({ message: 'Выход успешно выполнен' });
+
 const updateUserById = (req, res, next, userData) => User.findByIdAndUpdate(
   req.user._id,
   userData,

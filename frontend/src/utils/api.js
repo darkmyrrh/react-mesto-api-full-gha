@@ -86,7 +86,7 @@ class Api {
 }
 
 const api = new Api({
-  url: "http://localhost:3000",
+  url: "https://api.mesto.myrrh.ru",
   headers: {
     "content-type": "application/json; charset=UTF-8",
   },

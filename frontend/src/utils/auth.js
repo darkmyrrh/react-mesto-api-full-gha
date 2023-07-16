@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://api.mesto.myrrh.ru";
 
 function getResponse(res) {
   if (res.ok) {
@@ -31,6 +31,13 @@ export const authorize = (email, password) => {
     body: JSON.stringify({ email, password }),
   }).then(getResponse);
 };
+
+export const signout = () => {
+  return fetch(`${BASE_URL}/signout`, {
+    method: "GET",
+    credentials: "include",
+  }).then(getResponse);
+}
 
 export const checkToken = () => {
   return fetch(`${BASE_URL}/users/me`, {
