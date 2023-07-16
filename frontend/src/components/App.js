@@ -173,7 +173,7 @@ function App() {
         closeAllPopups();
       })
       .catch((err) => {
-        alert(err);
+        console.log(err);
       })
       .finally(() => {
         setRenderUserUpdateLoading(false);
@@ -189,7 +189,7 @@ function App() {
         closeAllPopups();
       })
       .catch((err) => {
-        alert(err);
+        console.log(err);
       })
       .finally(() => {
         setRenderAvatarUpdateLoading(false);
@@ -205,7 +205,7 @@ function App() {
         closeAllPopups();
       })
       .catch((err) => {
-        alert(err);
+        console.log(err);
       })
       .finally(() => {
         setRenderAddPlaceLoading(false);
@@ -225,7 +225,7 @@ function App() {
         closeAllPopups();
       })
       .catch((err) => {
-        alert(err);
+        console.log(err);
       })
       .finally(() => {
         setRenderCardDeleteLoading(false);

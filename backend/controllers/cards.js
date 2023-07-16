@@ -40,8 +40,9 @@ module.exports.createCard = (req, res, next) => {
     link,
     likes,
     owner,
+  }).then((newCard) => {
+    newCard.populate('owner').then(() => res.status(CREATED).send(newCard));
   })
-    .then((newCard) => res.status(CREATED).send(newCard))
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
         next(new BadRequestError('Переданы некорректные данные при создании карточки.'));
