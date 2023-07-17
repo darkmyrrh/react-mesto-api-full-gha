@@ -30,6 +30,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
+app.use(corsHangler);
 
 mongoose.connect(DB_URL, {
   useNewUrlParser: true,
@@ -38,7 +39,6 @@ mongoose.connect(DB_URL, {
   .catch((err) => console.log(err));
 
 app.use(requestLogger);
-app.use(corsHangler);
 app.use(routes);
 app.use(errorLogger);
 app.use(errors());

@@ -88,6 +88,7 @@ class Api {
 const api = new Api({
   url: "https://api.mesto.myrrh.ru",
   headers: {
+    Accept: "application/json",
     "content-type": "application/json; charset=UTF-8",
   },
 });
