@@ -13,14 +13,14 @@ const routes = require('./routes');
 const errorHandler = require('./middlewares/errorHandler');
 const corsHangler = require('./middlewares/corsHandler');
 
-const app = express();
-
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
   message:
   'С данного IP-адреса приходит слишком много запросов, повторите попытку через 15 минут',
 });
+
+const app = express();
 
 app.use(limiter);
 app.use(helmet());
