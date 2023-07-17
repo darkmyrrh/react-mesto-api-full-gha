@@ -84,8 +84,8 @@ function App() {
         navigate("/", { replace: true });      
       })
       .catch((err) => {
-        setInfoToolTipOpen(true);
         console.log(err)
+        setInfoToolTipOpen(true);        
       });
   };
 
