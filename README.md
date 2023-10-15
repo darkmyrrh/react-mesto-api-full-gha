@@ -12,5 +12,5 @@
 
 Ссылки на проект:
 
-- Frontend [https://mesto.myrrh.ru](https://mesto.myrrh.ru)
-- Backend [https://api.mesto.myrrh.ru](https://api.mesto.myrrh.ru)
+- Frontend: [https://mesto.myrrh.ru](https://mesto.myrrh.ru)
+- Backend: [https://api.mesto.myrrh.ru](https://api.mesto.myrrh.ru)
