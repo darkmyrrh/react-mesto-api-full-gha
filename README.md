@@ -8,9 +8,8 @@
 * Логирование ошибок и запросов
 * Аутентификация пользователя с использованием файла cookie и удаление его из браузера при выходе пользователя из системы
 
-Репозиторий: [https://github.com/darkmyrrh/react-mesto-api-full-gha]
+Репозиторий: [https://github.com/darkmyrrh/react-mesto-api-full-gha](https://github.com/darkmyrrh/react-mesto-api-full-gha)
 
 Ссылки на проект:
-Frontend [https://mesto.myrrh.ru]
-Backend [https://api.mesto.myrrh.ru]
-IP [82.146.54.59]
+Frontend [https://mesto.myrrh.ru](https://mesto.myrrh.ru)
+Backend [https://api.mesto.myrrh.ru](https://api.mesto.myrrh.ru)
