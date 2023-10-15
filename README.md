@@ -11,5 +11,6 @@
 Репозиторий: [https://github.com/darkmyrrh/react-mesto-api-full-gha](https://github.com/darkmyrrh/react-mesto-api-full-gha)
 
 Ссылки на проект:
-Frontend [https://mesto.myrrh.ru](https://mesto.myrrh.ru)
-Backend [https://api.mesto.myrrh.ru](https://api.mesto.myrrh.ru)
+
+- Frontend [https://mesto.myrrh.ru](https://mesto.myrrh.ru)
+- Backend [https://api.mesto.myrrh.ru](https://api.mesto.myrrh.ru)
